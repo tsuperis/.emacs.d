@@ -5,18 +5,6 @@
 (defun emacs-dir (path)
   (expand-file-name (concat user-emacs-directory path)))
 
-(defun add-to-load-path (&rest paths)
-  (let (path)
-    (dolist (path paths paths)
-      (let ((default-directory (emacs-dir path)))
-	(add-to-list 'load-path default-directory)
-	(if (fboundp 'normal-top-level-add-subdirs-to-load-path)
-	    (normal-top-level-add-subdirs-to-load-path))))))
-
-(add-to-load-path "elisp" "conf" "public_repos")
-
-(setq custom-file (locate-user-emacs-file "custom.el"))
-
 ;; package install
 (when (require 'package nil t)
   (setq package-archives
@@ -25,6 +13,7 @@
 	  ("org" . "http://orgmode.org/elpa/")))
   (package-initialize)
 
+  ;; install use-package
   (unless (package-installed-p 'use-package)
     (package-refresh-contents)
     (package-install 'use-package))
@@ -40,6 +29,3 @@
   (use-package init-loader
     :config
     (init-loader-load (emacs-dir "conf"))))
-
-(load-theme 'manoj-dark t)
-(setq visible-bell t)
