@@ -1,14 +1,26 @@
 
-# Created by https://www.toptal.com/developers/gitignore/api/emacs
-# Edit at https://www.toptal.com/developers/gitignore?templates=emacs
+# Created by https://www.toptal.com/developers/gitignore/api/elisp,emacs
+# Edit at https://www.toptal.com/developers/gitignore?templates=elisp,emacs
+
+### Elisp ###
+# Compiled
+*.elc
+
+# Packaging
+.cask
+straight/
+
+# Backup files
+*~
+
+# Undo-tree save-files
+*.~undo-tree
 
 ### Emacs ###
 # -*- mode: gitignore; -*-
-*~
 \#*\#
 /.emacs.desktop
 /.emacs.desktop.lock
-*.elc
 auto-save-list
 tramp
 .\#*
@@ -53,4 +65,4 @@ flycheck_*.el
 /network-security.data
 
 
-# End of https://www.toptal.com/developers/gitignore/api/emacs
+# End of https://www.toptal.com/developers/gitignore/api/elisp,emacs

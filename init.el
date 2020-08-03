@@ -5,27 +5,27 @@
 (defun emacs-dir (path)
   (expand-file-name (concat user-emacs-directory path)))
 
-;; package install
-(when (require 'package nil t)
-  (setq package-archives
-	'(("gnu" . "https://elpa.gnu.org/packages/")
-	  ("melpa" . "https://melpa.org/packages/")
-	  ("org" . "http://orgmode.org/elpa/")))
-  (package-initialize)
+;; straight.el setting by myself
+(let ((bootstrap-file (concat user-emacs-directory "straight/repos/straight.el/bootstrap.el"))
+      (bootstrap-version 3))
+  (unless (file-exists-p bootstrap-file)
+    (with-current-buffer
+        (url-retrieve-synchronously
+         "https://raw.githubusercontent.com/raxod502/straight.el/develop/install.el"
+         'silent 'inhibit-cookies)
+      (goto-char (point-max))
+      (eval-print-last-sexp)))
+  (load bootstrap-file nil 'nomessage))
 
-  ;; install use-package
-  (unless (package-installed-p 'use-package)
-    (package-refresh-contents)
-    (package-install 'use-package))
+;; use-package
+(straight-use-package 'use-package)
+(setq straight-use-package-by-default t)
 
-  (if (require 'use-package nil t)
-      (progn
-	(set-variable 'use-package-verbose t)
-	(set-variable 'use-package-always-ensure t))
-    (message "Use-package is unavailable!")
-    (defmacro use-package (&rest args)))
-
-  ;; load modules
-  (use-package init-loader
-    :config
-    (init-loader-load (emacs-dir "conf"))))
+;; load modules
+(use-package init-loader
+  :init
+  ;; Display error logs only when errors occur
+  (custom-set-variables
+    '(init-loader-show-log-after-init 'error-only))
+  :config
+  (init-loader-load (emacs-dir "conf")))
