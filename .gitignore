@@ -8,7 +8,8 @@
 
 # Packaging
 .cask
-straight/
+straight/*
+!straight/versions
 
 # Backup files
 *~
