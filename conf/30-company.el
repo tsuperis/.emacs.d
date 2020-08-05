@@ -1,9 +1,9 @@
 (use-package company
+  :hook (after-init . global-company-mode)
   :bind
   (("C-M-i" . company-complete)
-   :map company-mode-map
-   ("<tab>" . indent-for-tab-command)
    :map company-active-map
+   ("<tab>" . company-complete-selection)
    ("C-n" . company-select-next)
    ("C-p" . company-select-previous)
    ("C-s" . company-filter-candidates)
@@ -15,7 +15,6 @@
         company-minimum-prefix-length 2
         company-selection-wrap-around t)
   :config
-  (global-company-mode t)
   ;; color settings
   (set-face-attribute 'company-tooltip nil
                       :foreground "black" :background "lightgrey")
@@ -28,6 +27,6 @@
   (set-face-attribute 'company-preview-common nil
                       :background nil :foreground "lightgrey" :underline t)
   (set-face-attribute 'company-scrollbar-fg nil
-                      :background "orange")
+                      :background "LightSteelBlue3")
   (set-face-attribute 'company-scrollbar-bg nil
                       :background "gray40"))

@@ -3,14 +3,15 @@
   (setq ivy-use-virtual-buffers t
         ivy-count-format "(%d/%d) "
         ivy-wrap t)
+  (when (setq enable-recursive-minibuffers t)
+    (minibuffer-depth-indicate-mode t))
   :config
   (ivy-mode t))
 
 (use-package counsel
-  :after ivy
-  :bind (("M-x" . counsel-M-x)
-         ("M-y" . counsel-yank-pop)
-         ("C-x C-b" . counsel-ibuffer)
+  :after (ivy)
+  :bind (("M-y" . counsel-yank-pop)
+         ("C-x C-b" . ivy-switch-buffer))
   :config
   (defun my-ivy-kill-buffer (buf)
     (interactive)
