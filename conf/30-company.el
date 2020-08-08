@@ -1,12 +1,12 @@
 (use-package company
   :hook (after-init . global-company-mode)
   :bind
-  (("C-M-i" . company-complete)
-   :map company-active-map
+  (:map company-active-map
    ("<tab>" . company-complete-selection)
    ("C-n" . company-select-next)
    ("C-p" . company-select-previous)
    ("C-s" . company-filter-candidates)
+   ("C-h" . delete-backward-char)   
    :map company-search-map
    ("C-n" . company-select-next)
    ("C-p" . company-select-previous))
