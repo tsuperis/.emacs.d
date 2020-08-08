@@ -10,10 +10,10 @@
    :map company-search-map
    ("C-n" . company-select-next)
    ("C-p" . company-select-previous))
-  :init
-  (setq company-idle-delay 0
-        company-minimum-prefix-length 2
-        company-selection-wrap-around t)
+  :custom
+  (company-idle-delay 0)
+  (company-minimum-prefix-length 2)
+  (company-selection-wrap-around t)
   :config
   ;; color settings
   (set-face-attribute 'company-tooltip nil

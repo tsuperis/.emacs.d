@@ -3,3 +3,5 @@
   :custom
   (eldoc-idle-delay 0.1)
   (eldoc-echo-area-use-multiline-p t))
+
+(use-package eldoc-extension)

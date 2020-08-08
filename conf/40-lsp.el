@@ -1,5 +1,4 @@
 (use-package lsp-mode
-  :ensure t
   :bind (:map lsp-mode-map
               ("M-*" . xref-pop-marker-stack)
               ("M-." . xref-find-definitions)
@@ -10,7 +9,6 @@
   :commands (lsp lsp-deferred))
 
 (use-package lsp-ui
-  :ensure t
   :after (lsp)
   :hook
   (lsp-mode . lsp-ui-mode)

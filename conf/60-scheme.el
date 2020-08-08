@@ -1,3 +1,4 @@
 (use-package geiser
-  :init
-  (setq geiser-active-implementations '(racket)))
+  :hook (scheme-mode . geiser-mode)
+  :custom
+  (geiser-active-implementations '(racket)))

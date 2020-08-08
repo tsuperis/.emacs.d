@@ -1,8 +1,9 @@
 (use-package ivy
+  :custom
+  (ivy-use-virtual-buffers t)
+  (ivy-count-format "(%d/%d) ")
+  (ivy-wrap t)
   :init
-  (setq ivy-use-virtual-buffers t
-        ivy-count-format "(%d/%d) "
-        ivy-wrap t)
   (when (setq enable-recursive-minibuffers t)
     (minibuffer-depth-indicate-mode t))
   :config
