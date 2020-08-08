@@ -71,3 +71,4 @@ flycheck_*.el
 recentf
 *.html
 .lsp-session-*
+transient/
