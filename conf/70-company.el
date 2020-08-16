@@ -12,7 +12,7 @@
    ("C-p" . company-select-previous))
   :custom
   (company-idle-delay 0)
-  (company-minimum-prefix-length 2)
+  (company-minimum-prefix-length 1)
   (company-selection-wrap-around t)
   :config
   ;; color settings
