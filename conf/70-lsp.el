@@ -1,15 +1,23 @@
 (use-package lsp-mode
+  :after (company)
   :hook
   ((
     go-mode
+    python-mode
     ) . lsp)
   :custom
-  (lsp-prefer-capf t)
-  (lsp-prefer-flymake 'flymake)
-  :commands (lsp lsp-rename))
+  (lsp-modeline-diagnostics-scope :project)
+  (lsp-idle-delay 0.2)
+  (gc-cons-threshold 100000000)
+  (read-process-output-max (* 1024 1024))
+  :bind
+  (:map lsp-mode-map
+        ("C-c r" . lsp-rename)
+        )
+  )
 
 (use-package lsp-ui
-  :requires (lsp-mode)
+  :after (lsp-mode)
   :hook
   (lsp-mode . lsp-ui-mode)
   :custom
@@ -17,10 +25,9 @@
   (lsp-ui-peek-enable t)
   :bind
   (:map lsp-mode-map
-        ("C-c d" . my/toggle-lsp-ui-doc)
-        ("C-c r" . lsp-rename)
         ("M-." . lsp-ui-peek-find-definitions)
-        ("M-?" . lsp-ui-peek-find-references))
+        ("M-?" . lsp-ui-peek-find-references)
+        ("C-c d" . my/toggle-lsp-ui-doc))
   :preface
   (defun my/toggle-lsp-ui-doc ()
     (interactive)
@@ -31,4 +38,5 @@
           (lsp-ui-doc-hide))
       (progn
         (message "Show lsp-ui-doc")
-        (lsp-ui-doc-mode 1)))))
+        (lsp-ui-doc-mode 1))))
+  )
