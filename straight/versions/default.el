@@ -29,6 +29,7 @@
  ("straight.el" . "5d046ad09413f3aba6198229e392cdd3f07e77ee")
  ("swiper" . "9619e3ccc4e9179780cf48b7abb24239037791d7")
  ("transient" . "4d44d08e90355a8ef36aaad1f9f79c95de1ce0e9")
+ ("undo-tree" . "5b6df03781495d8a25695d846b0cce496d3d3058")
  ("use-package" . "4fb1f9a68f1e7e7d614652afc017a6652fd029f1")
  ("with-editor" . "efafd482c21b90decbb0b682ed3159c86014d4f3")
  ("yaml-mode" . "68fecb5f0dec712a10c8655df6881392a4613617"))
