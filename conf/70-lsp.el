@@ -7,7 +7,7 @@
     ) . lsp)
   :custom
   (lsp-modeline-diagnostics-scope :project)
-  (lsp-idle-delay 0.2)
+  (lsp-idle-delay 0.1)
   (gc-cons-threshold 100000000)
   (read-process-output-max (* 1024 1024))
   :bind
@@ -22,6 +22,9 @@
   (lsp-mode . lsp-ui-mode)
   :custom
   (lsp-ui-doc-enable t)
+  (lsp-ui-doc-header t)
+  (lsp-ui-doc-use-childframe t)
+  (lsp-ui-doc-use-webkit t)
   (lsp-ui-peek-enable t)
   :bind
   (:map lsp-mode-map
