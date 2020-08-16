@@ -1,9 +1,6 @@
 ;; theme setting
 (load-theme 'manoj-dark t)
 
-;; display full path on title bar
-(setq frame-title-format "%f")
-
 ;; current line highlight
 (defface my-hl-line-face
   '((((class color) (background dark))
@@ -16,5 +13,6 @@
 (global-hl-line-mode t)
 
 ;; paren ()
-(setq show-paren-delay 0)
+(setq show-paren-delay 0
+      show-paren-style 'mixed)
 (show-paren-mode t)

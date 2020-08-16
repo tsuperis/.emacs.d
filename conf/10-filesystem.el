@@ -1,3 +1,6 @@
+;; display full path on title bar
+(setq frame-title-format "%f")
+
 ;; create backup to tmpdir
 (setq backup-directory-alist
       `((".*" . ,temporary-file-directory)))
