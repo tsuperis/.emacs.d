@@ -72,3 +72,4 @@ recentf
 *.html
 .lsp-session-*
 transient/
+ac-comphist.dat

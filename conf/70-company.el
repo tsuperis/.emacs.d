@@ -1,5 +1,4 @@
 (use-package company
-  :hook (after-init . global-company-mode)
   :bind
   (:map company-active-map
    ("<tab>" . company-complete-selection)
@@ -10,12 +9,13 @@
    :map company-search-map
    ("C-n" . company-select-next)
    ("C-p" . company-select-previous))
+  :init
+  (global-company-mode t)
   :custom
   (company-idle-delay 0)
   (company-minimum-prefix-length 1)
   (company-selection-wrap-around t)
   :config
-  ;; color settings
   (set-face-attribute 'company-tooltip nil
                       :foreground "black" :background "lightgrey")
   (set-face-attribute 'company-tooltip-common nil
