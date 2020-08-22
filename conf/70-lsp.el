@@ -3,6 +3,7 @@
   :hook
   ((
     go-mode
+    python-mode
     ) . lsp)
   :custom
   (lsp-modeline-diagnostics-scope :project)

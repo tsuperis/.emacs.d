@@ -3,7 +3,7 @@
   :hook
   ((
     python-mode
-    emacs-lisp-mode
+    yaml-mode
     ) . highlight-indent-guides-mode)
   :custom
   (highlight-indent-guides-method 'character)
