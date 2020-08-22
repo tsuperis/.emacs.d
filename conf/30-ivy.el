@@ -9,6 +9,10 @@
   :config
   (ivy-mode t))
 
+(use-package swiper
+  :after (ivy)
+  :bind ("C-s" . swiper))
+
 (use-package counsel
   :after (ivy)
   :bind (("M-y" . counsel-yank-pop)
