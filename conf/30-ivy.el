@@ -1,4 +1,7 @@
 (use-package ivy
+  :bind
+  ("C-x C-b" . ivy-switch-buffer)
+  ("C-c C-r" . ivy-resume)
   :custom
   (ivy-use-virtual-buffers t)
   (ivy-count-format "(%d/%d) ")
@@ -9,14 +12,17 @@
   :config
   (ivy-mode t))
 
+(use-package ivy-hydra
+  :custom
+  (ivy-read-action-function #'ivy-hydra-read-action))
+
 (use-package swiper
   :after (ivy)
   :bind ("C-s" . swiper))
 
 (use-package counsel
   :after (ivy)
-  :bind (("M-y" . counsel-yank-pop)
-         ("C-x C-b" . ivy-switch-buffer))
+  :bind ("M-y" . counsel-yank-pop)
   :config
   (defun my-ivy-kill-buffer (buf)
     (interactive)
