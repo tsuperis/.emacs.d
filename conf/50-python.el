@@ -1,8 +1,18 @@
 (use-package python
   :mode
   ("\\.py\\'" . python-mode)
-  :init
-  (setq-default lsp-pyls-configuration-sources ["flake8"])
+  :hook
+  (python-mode . (lambda ()
+                   (setq indent-tabs-mode nil)
+                   (setq indent-level 4)
+                   (setq tab-width 4)
+                   (setq python-indent 4)
+                   (setq whitespace-style '(face tabs tab-mark))
+                   (setq whitespace-display-mappings
+                         '((tab-mark ?\t [?\u00BB ?\t] [?\\ ?\t])))
+                   (add-to-list 'write-file-functions 'delete-trailing-whitespace)
+                   ))
+  (before-sav)
   )
 
 (use-package pyenv-mode
@@ -14,15 +24,15 @@
   :after (pyenv-mode)
   )
 
-;; (use-package elpy
-;;   :hook
-;;   (python-mode . elpy-enable)
-;;   (before-save . whitespace-cleanup)
-;;   :custom
-;;   (elpy-rpc-virtualenv-path 'current)
-;;   :config
-;;   (delete `elpy-module-highlight-indentation elpy-modules)
-;;   (when (require 'flycheck nil t)
-;;     (remove-hook 'elpy-modules 'elpy-module-flymake)
-;;     (add-hook 'elpy-mode-hook 'flycheck-mode))
-;;   )
+(use-package elpy
+  :hook
+  (python-mode . elpy-enable)
+  (before-save . whitespace-cleanup)
+  :custom
+  (elpy-rpc-virtualenv-path 'current)
+  :config
+  (delete `elpy-module-highlight-indentation elpy-modules)
+  (when (require 'flycheck nil t)
+    (remove-hook 'elpy-modules 'elpy-module-flymake)
+    (add-hook 'elpy-mode-hook 'flycheck-mode))
+  )
