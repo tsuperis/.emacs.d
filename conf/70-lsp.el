@@ -5,11 +5,13 @@
     go-mode
     python-mode
     ) . lsp)
+  (lsp-managed-mode . (lambda () (setq-local company-backends '(company-capf :with company-yasnippet))))
   :custom
   (lsp-modeline-diagnostics-scope :project)
-  (lsp-idle-delay 0.1)
-  (gc-cons-threshold 100000000)
-  (read-process-output-max (* 1024 1024))
+  (gc-cons-threshold 12800000)
+  (read-process-output-max (* 1024 1024 3))
+  (lsp-enable-file-watchers nil)
+  (lsp-print-performance t)
   :bind
   (:map lsp-mode-map
         ("C-c r" . lsp-rename)
@@ -26,6 +28,7 @@
   (lsp-ui-doc-use-childframe t)
   (lsp-ui-doc-use-webkit t)
   (lsp-ui-peek-enable t)
+  (lsp-ui-flycheck-enable nil)
   :bind
   (:map lsp-mode-map
         ("M-." . lsp-ui-peek-find-definitions)

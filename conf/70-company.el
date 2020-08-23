@@ -1,4 +1,9 @@
+(use-package yasnippet
+  :init
+  (yas-global-mode t))
+
 (use-package company
+  :after (yasnippet)
   :bind
   (:map company-active-map
    ("<tab>" . company-complete-selection)
@@ -15,6 +20,7 @@
   (company-idle-delay 0)
   (company-minimum-prefix-length 1)
   (company-selection-wrap-around t)
+  (company-mode/enable-yas t)
   :config
   (set-face-attribute 'company-tooltip nil
                       :foreground "black" :background "lightgrey")
