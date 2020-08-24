@@ -1,6 +1,4 @@
-(use-package yasnippet
-  :init
-  (yas-global-mode t))
+(use-package yasnippet)
 
 (use-package company
   :after (yasnippet)
@@ -16,6 +14,8 @@
    ("C-p" . company-select-previous))
   :init
   (global-company-mode t)
+  :hook
+  (company-mode . yas-minor-mode)
   :custom
   (company-idle-delay 0)
   (company-minimum-prefix-length 1)

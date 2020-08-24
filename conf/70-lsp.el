@@ -3,6 +3,7 @@
   :hook
   ((
     go-mode
+    vue-mode
     ;; python-mode  ;; too slow
     ) . lsp)
   (lsp-managed-mode . (lambda () (setq-local company-backends '(company-capf :with company-yasnippet))))
