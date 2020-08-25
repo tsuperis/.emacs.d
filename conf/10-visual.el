@@ -29,6 +29,9 @@
   :hook
   (after-init . doom-modeline-mode))
 
+;; show column number
+(column-number-mode t)
+
 ;; hilight cursor line
 (global-hl-line-mode t)
 
