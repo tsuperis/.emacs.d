@@ -13,4 +13,5 @@
 
 (if window-system
     (global-unset-key (kbd "C-x C-c")))
+
 (defalias 'exit 'kill-emacs)
