@@ -25,6 +25,10 @@
   )
 
 (use-package elpy
+  :bind
+  (:map python-mode-map
+        ("M-." . elpy-goto-assignment)
+        ("M-*" . elpy-goto-definition))
   :hook
   (python-mode . elpy-enable)
   (before-save . whitespace-cleanup)

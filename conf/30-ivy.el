@@ -22,7 +22,9 @@
 
 (use-package counsel
   :after (ivy)
-  :bind ("M-y" . counsel-yank-pop)
+  :bind
+  ("M-x" . counsel-M-x)
+  ("M-y" . counsel-yank-pop)
   :config
   (defun my-ivy-kill-buffer (buf)
     (interactive)

@@ -8,3 +8,7 @@
 (add-to-load-path "elisp")
 
 (setq custom-file (locate-user-emacs-file "custom.el"))
+
+(if window-system
+    (global-unset-key (kbd "C-x C-c")))
+(defalias 'exit 'kill-emacs)

@@ -1,5 +1,4 @@
 (use-package highlight-indent-guides
-  :diminish
   :hook
   ((
     python-mode

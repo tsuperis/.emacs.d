@@ -1,9 +1,6 @@
 ;; auto pair chars
 (electric-pair-mode t)
 
-;; visual bell
-(setq visible-bell t)
-
 ;; display full path on title bar
 (setq frame-title-format "%f")
 
