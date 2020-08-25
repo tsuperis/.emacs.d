@@ -9,6 +9,8 @@
 
 (setq custom-file (locate-user-emacs-file "custom.el"))
 
+(setq inhibit-splash-screen t)
+
 (if window-system
     (global-unset-key (kbd "C-x C-c")))
 (defalias 'exit 'kill-emacs)

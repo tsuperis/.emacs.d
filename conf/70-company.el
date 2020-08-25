@@ -8,7 +8,7 @@
    ("C-n" . company-select-next)
    ("C-p" . company-select-previous)
    ("C-s" . company-filter-candidates)
-   ("C-h" . delete-backward-char)   
+   ("C-h" . delete-backward-char)
    :map company-search-map
    ("C-n" . company-select-next)
    ("C-p" . company-select-previous))
@@ -36,3 +36,10 @@
                       :background "LightSteelBlue3")
   (set-face-attribute 'company-scrollbar-bg nil
                       :background "gray40"))
+
+(use-package company-box
+  :after (company all-the-icons)
+  :hook ((company-mode . company-box-mode))
+  :custom
+  (company-box-icons-alist 'company-box-icons-all-the-icons)
+  (company-box-doc-enable nil))

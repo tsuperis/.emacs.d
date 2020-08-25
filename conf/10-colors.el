@@ -1,13 +1,4 @@
 ;; theme setting
-(use-package doom-themes
-  :custom
-  (doom-themes-enable-italic t)
-  (doom-themes-enable-bold t)
-  :config
-  (load-theme 'doom-dracula t)
-  (doom-themes-neotree-config)
-  (doom-themes-org-config))
-
 (use-package all-the-icons
   :config
   (let ((font-dest (cl-case window-system
@@ -19,13 +10,19 @@
     (unless (file-exists-p (concat font-dest "all-the-icons.ttf"))
       (all-the-icons-install-fonts t))))
 
-(use-package neotree
+(use-package doom-themes
   :after (all-the-icons)
-  :bind
-  ("C-c t" . neotree-show)
   :custom
-  (neo-theme (if (display-graphic-p) 'icons 'arrow))
-  (neo-show-hidden-files t))
+  (doom-themes-enable-italic t)
+  (doom-themes-enable-bold t)
+  :config
+  (load-theme 'doom-molokai t)
+  (doom-themes-neotree-config)
+  (doom-themes-org-config))
+
+(use-package doom-modeline
+  :hook
+  (after-init . doom-modeline-mode))
 
 (global-hl-line-mode t)
 
