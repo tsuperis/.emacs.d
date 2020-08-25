@@ -1,7 +1,7 @@
 (bind-keys* ("C-?" . help-command)
             ("C-h" . delete-backward-char)
             ("C-S-h" . backward-kill-word)
-            ("C-k" . paredit-kill)
+            ;("C-k" . paredit-kill)
             ("C-t" . other-window)
             ("C-c l" . toggle-truncate-lines)
             )
