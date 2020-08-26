@@ -27,7 +27,10 @@
 
 (use-package doom-modeline
   :hook
-  (after-init . doom-modeline-mode))
+  (after-init . (lambda ()
+                  (if window-system (doom-modeline-mode))
+                  ))
+  )
 
 ;; show column number
 (column-number-mode t)
