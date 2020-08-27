@@ -42,4 +42,3 @@
 (setq show-paren-delay 0
       show-paren-style 'mixed)
 (show-paren-mode t)
-

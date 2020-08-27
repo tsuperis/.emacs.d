@@ -15,7 +15,7 @@
   (lsp-print-performance t)
   :bind
   (:map lsp-mode-map
-        ("C-c r" . lsp-rename)
+        ("C-c C-r" . lsp-rename)
         )
   )
 
