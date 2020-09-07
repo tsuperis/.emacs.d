@@ -24,6 +24,13 @@
   :after (pyenv-mode)
   )
 
+(use-package pipenv
+  :hook (python-mode . pipenv-mode)
+  :init
+  (setq
+   pipenv-projectile-after-switch-function
+   #'pipenv-projectile-after-switch-extended))
+
 (use-package elpy
   :bind
   (:map python-mode-map
@@ -33,6 +40,7 @@
   (python-mode . elpy-enable)
   (before-save . whitespace-cleanup)
   :custom
+  (elpy-rpc-python-command "python3")
   (elpy-rpc-virtualenv-path 'current)
   :config
   (delete `elpy-module-highlight-indentation elpy-modules)
